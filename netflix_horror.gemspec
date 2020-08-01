@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "summary"
   spec.description   = "description"
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/JohannesHupfeld/netflix_horror"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
@@ -26,4 +26,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "nokogiri"
+  
 end
