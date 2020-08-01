@@ -1,0 +1,2 @@
+class NetflixHorror::Scraper
+end

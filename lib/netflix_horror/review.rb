@@ -1,0 +1,2 @@
+class NetflixHorror::Review
+end
