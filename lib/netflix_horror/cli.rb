@@ -45,16 +45,15 @@ class NetflixHorror::CLI
     end
 
     def want_more_info(movie)
-        puts "Read more? (Y/N)"
+        puts "Read reviews (Y/N)?"
         input = "nil"
         until input == "Y" || input == "N"
-            puts "Type Y(yes) or N(no)"
             input = gets.strip.upcase
         end
         if input = "y"
             NetflixHorror::Scraper.scrape_reviews(movie)
         else
-            puts "you ended! " 
+            puts "you ended!" 
         end
     end
     

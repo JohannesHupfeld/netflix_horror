@@ -23,10 +23,18 @@ class NetflixHorror::Scraper
     end
 
     def self.scrape_reviews(movie)
-        review_page = Nokogiri::HTML(open(movie.url))
-        review.css
+        binding.pry
 
-        movie.review = review.css
+        review_page = Nokogiri::HTML(open(movie.url))
+        reviews = review_page.css("li.top_critic") #array of reviews
+
+        reviews.each do |review|
+        #instantiate a new review
+        #associate that review with this movie
+        #add this review to movie.reviews
+        #set any review attributes
+        end
+        #review_page.css("div.media blockquote.media-body p")[0].text.strip
 
     end
 end
