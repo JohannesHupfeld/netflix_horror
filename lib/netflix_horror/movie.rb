@@ -19,7 +19,7 @@ class NetflixHorror::Movie
         #itterates throught the hash, then calling the method self.send method to whatever our key is then assigns it to a value. 
         #first key is title and then the value is what we pass through it.
         end
-         self.save
+        self.save
     end
 
     def save

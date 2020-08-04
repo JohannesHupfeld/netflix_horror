@@ -5,7 +5,7 @@ class NetflixHorror::Scraper
        
        array_of_movies = index_page.css("div.countdown-item")
        
-       array_of_movies.each do |movie_card| 
+       array_of_movies[0...50].each do |movie_card| 
            attributes = {
                title: movie_card.css("div.article_movie_title a")[0].children.text, 
                url: movie_card.css("div.article_movie_title a")[0].attributes['href'].value,
@@ -18,7 +18,7 @@ class NetflixHorror::Scraper
                directed_by: movie_card.css("div.director").text,
            }
            movie = NetflixHorror::Movie.new(attributes)
-           
+
        end
     end
 
