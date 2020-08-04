@@ -8,7 +8,6 @@ class NetflixHorror::CLI
         list_movies
         puts "Please select the number of the corresponding movie that you would like more info on:"
         get_movie_method #asked for input and reported a teaser of the movie
-        menu
     end 
 
     def greeting
@@ -30,8 +29,11 @@ class NetflixHorror::CLI
         index = input.to_i-1
         if index.between?(0,49) #a string will be -1 
             movie = @sorted_movies[index]
-            puts "#{movie.title}:"
+            puts "#{movie.title} #{movie.year}:"
             puts "Rotten Tomatoes rated this movie #{movie.rating}"
+            puts "#{movie.synopsis}"
+            puts "#{movie.starring}"
+            puts "#{movie.directed_by}"
             puts "#{movie.critic_consensus}" 
             want_more_info(movie)
         elsif input == "exit"
@@ -50,15 +52,11 @@ class NetflixHorror::CLI
             input = gets.strip.upcase
         end
         if input = "y"
-            #2nd scape
+            NetflixHorror::Scraper.scrape_reviews(movie)
         else
             puts "you ended! " 
         end
     end
-
-
-    def menu
-    end
-
+    
     
 end 

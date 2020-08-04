@@ -22,7 +22,11 @@ class NetflixHorror::Scraper
        end
     end
 
-    def scrape_reviews(movie)
+    def self.scrape_reviews(movie)
+        review_page = Nokogiri::HTML(open(movie.url))
+        review.css
+
+        movie.review = review.css
 
     end
 end
