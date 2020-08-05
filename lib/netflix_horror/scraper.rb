@@ -26,26 +26,25 @@ class NetflixHorror::Scraper
 
         review_page = Nokogiri::HTML(open(movie_object.url))
         reviews = review_page.css("li.top_critic") #array of reviews
-
-        reviews.each do |review_html|
-            #instantiate a new review
-        ro = NetflixHorror::Review.new
-            #ro stands for review object
-            #associate that review with this movie
-        #ro.movie = movie_object
-            #set any review attributes
-        ro.quote = review_html.css("div.media blockquote.media-body p").text.strip
-
-        ro.author = review_html.css("div.review_source a.unstyled").text
         
+        reviews.each do |review_html|  
+            #instantiate a new review 
+            #associate that review with this movie
+            #set any review attributes
+        
+        ro = NetflixHorror::Review.new  
+           
+        ro.quote = review_html.css("div.media blockquote.media-body p").text.strip
+        ro.author = review_html.css("div.review_source a.unstyled").text
         ro.press = review_html.css("div.review_source a.subtle").text
-            #add this review to movie.reviews
-        #movie_object.review << ro
-        movie_object.add_review(ro)
-        end
-    
 
+        movie_object.add_review(ro)
+        #add this review to movie.reviews
+        
+        end
+        
     end
+
 end
 
 

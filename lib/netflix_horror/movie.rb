@@ -1,5 +1,6 @@
 class NetflixHorror::Movie
-    attr_accessor :title, :url, :year, :rating, :adjusted_score, :critic_consensus, :synopsis, :starring, :directed_by   
+    attr_accessor :title, :url, :year, :rating, :adjusted_score, :critic_consensus, :synopsis, :starring, :directed_by 
+    attr_reader :reviews  
     
     @@all = []
     

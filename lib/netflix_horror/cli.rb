@@ -8,7 +8,6 @@ class NetflixHorror::CLI
         list_movies
         puts "Please select the number of the corresponding movie that you would like more info on:"
         get_movie_method #asked for input and reported a teaser of the movie
-        want_more_info
     end 
 
     def greeting
@@ -37,6 +36,9 @@ class NetflixHorror::CLI
             puts "#{movie.directed_by}"
             puts "#{movie.critic_consensus}" 
             want_more_info(movie)
+            puts "Please select the number of the corresponding movie that you would like more info on or type exit to leave"
+            get_movie_method
+             
         elsif input == "exit"
             #allow this  method to end
         else
@@ -55,7 +57,7 @@ class NetflixHorror::CLI
         if input == "Y" || input == "YES"
             puts "... searching for reviews \n\n"
             NetflixHorror::Scraper.scrape_reviews(movie)
-            movie.reviews.each do |reviews|
+            movie.reviews.each do |review|
                 puts "#{review.author} from the #{review.press} says #{review.quote}.\n\n"
             end
         else
