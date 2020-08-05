@@ -8,6 +8,7 @@ class NetflixHorror::CLI
         list_movies
         puts "Please select the number of the corresponding movie that you would like more info on:"
         get_movie_method #asked for input and reported a teaser of the movie
+        want_more_info
     end 
 
     def greeting
@@ -46,12 +47,17 @@ class NetflixHorror::CLI
 
     def want_more_info(movie)
         puts "Read reviews (Y/N)?"
-        input = "nil"
-        until input == "Y" || input == "N"
+        input = gets.strip.upcase
+        until ["Y","N","YES","NO"].include?(input) #input == "Y" || input =="N "
+            puts "Please type Y or N"
             input = gets.strip.upcase
         end
-        if input = "y"
+        if input == "Y" || input == "YES"
+            puts "... searching for reviews \n\n"
             NetflixHorror::Scraper.scrape_reviews(movie)
+            movie.reviews.each do |reviews|
+                puts "#{review.author} from the #{review.press} says #{review.quote}.\n\n"
+            end
         else
             puts "you ended!" 
         end

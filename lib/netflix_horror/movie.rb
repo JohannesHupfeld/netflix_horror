@@ -19,6 +19,7 @@ class NetflixHorror::Movie
         #itterates throught the hash, then calling the method self.send method to whatever our key is then assigns it to a value. 
         #first key is title and then the value is what we pass through it.
         end
+        @reviews = []
         self.save
     end
 
@@ -29,6 +30,11 @@ class NetflixHorror::Movie
 
     def self.all
         @@all
+    end
+
+    def add_review(rev)
+        @reviews << rev
+        rev.movie = self
     end
 
     
