@@ -46,6 +46,7 @@ class NetflixHorror::CLI
             get_movie_method
              
         elsif input == "exit"
+            puts "Thank you for checking out the Netflix Horror app!".colorize(:red)
             #allow this  method to end
         else
             puts "Invalid input, please try again...".colorize(:red)
@@ -57,7 +58,7 @@ class NetflixHorror::CLI
         puts "Read reviews (Y/N)?".colorize(:red)
         input = gets.strip.upcase
         until ["Y","N","YES","NO"].include?(input) #input == "Y" || input =="N "
-            puts "Please type yes/Y or no/N".colorize(:red)
+            puts "Please type yes(Y) or no(N)".colorize(:red)
             input = gets.strip.upcase
         end
         if input == "Y" || input == "YES"
@@ -66,9 +67,9 @@ class NetflixHorror::CLI
             movie.reviews.each do |review|
                 puts "#{review.author} from the #{review.press} says #{review.quote}.\n\n".colorize(:blue)
             end
-        else
-            puts "Thank you for checking out the Netflix Horror app!".colorize(:red)
-        end
+       #else
+       #    puts "Thank you for checking out the Netflix Horror app!".colorize(:red)
+       end
     end
     
     
