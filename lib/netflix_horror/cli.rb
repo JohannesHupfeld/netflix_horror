@@ -3,12 +3,10 @@ class NetflixHorror::CLI
     
     def start
         greeting
-        NetflixHorror::Scraper.scrape_movies
+        scrape_movies
         sorted_movies
         list_movies
-        puts ""
-        puts "Please select a number (1-50) of the corresponding movie that you would like more info on or type exit to leave:".colorize(:red)
-        puts ""
+        menu
         choose_movie #asked for input and reported a teaser of the movie
     end 
 
@@ -17,6 +15,16 @@ class NetflixHorror::CLI
         puts ""
         puts "Listed below are the top 50 horror movies on Netflix according to Rotten Tomatoes:".colorize(:red).underline
         puts ""
+    end
+
+    def menu
+        puts ""
+        puts "Please select a number (1-50) of the corresponding movie that you would like more info on or type exit to leave:".colorize(:red)
+        puts ""
+    end
+
+    def scrape_movies
+        NetflixHorror::Scraper.scrape_movies
     end
 
     def sorted_movies
@@ -34,6 +42,7 @@ class NetflixHorror::CLI
         index = input.to_i-1
         if index.between?(0,49) #a string will be -1 
             movie = @sorted_movies[index]
+            puts ""
             puts "#{movie.title} #{movie.year}:".colorize(:blue)
             puts ""
             puts "Rotten Tomatoes rated this movie #{movie.rating}".colorize(:blue)
@@ -46,8 +55,9 @@ class NetflixHorror::CLI
             puts ""
             puts "#{movie.critic_consensus}".colorize(:blue)
             puts "" 
-            want_more_info(movie)
+            read_reviews(movie)
             puts "Please select a number (1-50) of the corresponding movie that you would like more info on or type exit to leave:".colorize(:red)
+            puts ""
             choose_movie
              
         elsif input == "exit"
@@ -63,17 +73,23 @@ class NetflixHorror::CLI
         end
     end
 
-    def want_more_info(movie)
+    def read_reviews(movie)
+        puts ""
         puts "Read reviews (Y/N)?".colorize(:red)
+        puts ""
         input = gets.strip.upcase
         until ["Y","N","YES","NO"].include?(input) #input == "Y" || input =="N "
+            puts ""
             puts "Please type yes(Y) or no(N)".colorize(:red)
+            puts ""
             input = gets.strip.upcase
         end
         if input == "Y" || input == "YES"
-            puts "... searching for reviews \n\n".colorize(:red)
+            puts ""
+            puts "searching for reviews..... \n\n".colorize(:red)
             NetflixHorror::Scraper.scrape_reviews(movie)
             movie.reviews.each do |review|
+                puts ""
                 puts "#{review.author} from the #{review.press} says #{review.quote}.\n\n".colorize(:blue)
             end
        #else
