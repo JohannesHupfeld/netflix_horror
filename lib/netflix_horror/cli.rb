@@ -6,12 +6,17 @@ class NetflixHorror::CLI
         NetflixHorror::Scraper.scrape_movies
         sorted_movies
         list_movies
+        puts ""
         puts "Please select a number (1-50) of the corresponding movie that you would like more info on or type exit to leave:".colorize(:red)
+        puts ""
         get_movie_method #asked for input and reported a teaser of the movie
     end 
 
     def greeting
         puts "Welcome to the Netflix Horror app!".colorize(:red)
+        puts ""
+        puts "Listed below are the top 50 horror movies on Netflix according to Rotten Tomatoes:".colorize(:red).underline
+        puts ""
     end
 
     def sorted_movies
@@ -46,11 +51,13 @@ class NetflixHorror::CLI
             get_movie_method
              
         elsif input == "exit"
+            puts ""
             puts "Thank you for checking out the Netflix Horror app!".colorize(:red)
+            puts ""
             #allow this  method to end
         else
             puts "Invalid input, please try again...".colorize(:red)
-            get_movie_method #recursion
+            get_movie_method #recursion- recalling a method inside a method...starts this method over again
         end
     end
 
@@ -71,6 +78,5 @@ class NetflixHorror::CLI
        #    puts "Thank you for checking out the Netflix Horror app!".colorize(:red)
        end
     end
-    
     
 end 
