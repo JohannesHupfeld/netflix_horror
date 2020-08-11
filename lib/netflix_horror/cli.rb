@@ -9,7 +9,7 @@ class NetflixHorror::CLI
         puts ""
         puts "Please select a number (1-50) of the corresponding movie that you would like more info on or type exit to leave:".colorize(:red)
         puts ""
-        get_movie_method #asked for input and reported a teaser of the movie
+        choose_movie #asked for input and reported a teaser of the movie
     end 
 
     def greeting
@@ -29,7 +29,7 @@ class NetflixHorror::CLI
         end
     end
 
-    def get_movie_method
+    def choose_movie
         input = gets.strip
         index = input.to_i-1
         if index.between?(0,49) #a string will be -1 
@@ -48,7 +48,7 @@ class NetflixHorror::CLI
             puts "" 
             want_more_info(movie)
             puts "Please select a number (1-50) of the corresponding movie that you would like more info on or type exit to leave:".colorize(:red)
-            get_movie_method
+            choose_movie
              
         elsif input == "exit"
             puts ""
@@ -56,8 +56,10 @@ class NetflixHorror::CLI
             puts ""
             #allow this  method to end
         else
+            puts ""
             puts "Invalid input, please try again...".colorize(:red)
-            get_movie_method #recursion- recalling a method inside a method...starts this method over again
+            puts ""
+            choose_movie #recursion- recalling a method inside a method...starts this method over again
         end
     end
 
