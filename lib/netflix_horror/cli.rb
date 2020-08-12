@@ -56,6 +56,7 @@ class NetflixHorror::CLI
             puts "#{movie.critic_consensus}".colorize(:blue)
             puts "" 
             read_reviews(movie)
+            puts ""
             puts "Please select a number (1-50) of the corresponding movie that you would like more info on or type exit to leave:".colorize(:red)
             puts ""
             choose_movie
@@ -86,7 +87,8 @@ class NetflixHorror::CLI
         end
         if input == "Y" || input == "YES"
             puts ""
-            puts "searching for reviews..... \n\n".colorize(:red)
+            puts "searching for reviews.....".colorize(:red)
+            puts ""
             NetflixHorror::Scraper.scrape_reviews(movie)
             movie.reviews.each do |review|
                 puts ""
