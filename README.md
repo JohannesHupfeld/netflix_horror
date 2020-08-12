@@ -1,8 +1,6 @@
 # NetflixHorror
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/netflix_horror`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Netflx Horror app! This app uses Nokogiri to scrape Rotten Tomatoes website for the top 50 horror movies on Netflix. You will be provided wiht a list of the movies then by selecting the movie you will be given the basic information about the chosen movie and if youd like you can go further and read the critic reviews.
 
 ## Installation
 
