@@ -35,7 +35,7 @@ class NetflixHorror::Movie
 
     def add_review(rev)
         @reviews << rev
-        rev.movie = self
+        rev.movie = self #set the converse 
     end
 
     

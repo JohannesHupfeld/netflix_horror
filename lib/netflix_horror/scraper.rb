@@ -32,13 +32,13 @@ class NetflixHorror::Scraper
             #associate that review with this movie
             #set any review attributes
         
-        ro = NetflixHorror::Review.new  
+        ro = NetflixHorror::Review.new  #instantiate a new review
            
         ro.quote = review_html.css("div.media blockquote.media-body p").text.strip
         ro.author = review_html.css("div.review_source a.unstyled").text
         ro.press = review_html.css("div.review_source a.subtle").text
 
-        movie_object.add_review(ro)
+        movie_object.add_review(ro) 
         #add this review to movie.reviews
         end    
     end

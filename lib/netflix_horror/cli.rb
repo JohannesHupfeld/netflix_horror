@@ -41,9 +41,9 @@ class NetflixHorror::CLI
         input = gets.strip
         index = input.to_i-1
         if index.between?(0,49) #a string will be -1 
-            movie = @sorted_movies[index]
+            movie = @sorted_movies[index] #movie is an object
             puts ""
-            puts "#{movie.title} #{movie.year}:".colorize(:blue)
+            puts "#{movie.title} #{movie.year}:".colorize(:blue) #title becomes a method when its chained to the object, movie. 
             puts ""
             puts "Rotten Tomatoes rated this movie #{movie.rating}".colorize(:blue) #interpolation -injects the value of the variable 
             puts ""
@@ -79,7 +79,7 @@ class NetflixHorror::CLI
         puts "Read reviews (Y/N)?".colorize(:red)
         puts ""
         input = gets.strip.upcase
-        until ["Y","N","YES","NO"].include?(input) #input == "Y" || input =="N "
+        until ["Y","N","YES","NO"].include?(input) #input == "Y" || input =="N " ..... creates an array of all valid options
             puts ""
             puts "Please type yes(Y) or no(N)".colorize(:red)
             puts ""
@@ -89,8 +89,8 @@ class NetflixHorror::CLI
             puts ""
             puts "searching for reviews.....".colorize(:red)
             puts ""
-            NetflixHorror::Scraper.scrape_reviews(movie)
-            movie.reviews.each do |review|
+            NetflixHorror::Scraper.scrape_reviews(movie) #passing in movie because it is the movie object a user has selected. 
+            movie.reviews.each do |review| # old movie object now has reviews attached to it
                 puts ""
                 puts "#{review.author} from the #{review.press} says #{review.quote}.\n\n".colorize(:blue)
             end
