@@ -29,7 +29,7 @@ class NetflixHorror::Movie
         self
     end
 
-    def self.all
+    def self.all #class method because the class is keeping track of the data that we want to get back out.
         @@all
     end
 
