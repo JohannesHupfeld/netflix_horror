@@ -17,7 +17,7 @@ class NetflixHorror::Movie
         
         att_hash.each do |key, value|
             self.send("#{key}=", value)
-        #itterates through the hash, then calling the method self.send method to whatever our key is then assigns it to a value. 
+        #This Iterates through the hash and then for each key and value it calls the method self to whatever our key is and then assigns it to a value. 
         #first key is title and then the value is what we pass through it.
         end
         @reviews = []

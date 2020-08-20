@@ -45,7 +45,7 @@ class NetflixHorror::CLI
             puts ""
             puts "#{movie.title} #{movie.year}:".colorize(:blue)
             puts ""
-            puts "Rotten Tomatoes rated this movie #{movie.rating}".colorize(:blue)
+            puts "Rotten Tomatoes rated this movie #{movie.rating}".colorize(:blue) #interpolation -injects the value of the variable 
             puts ""
             puts "#{movie.synopsis}".colorize(:blue)
             puts ""
@@ -65,7 +65,7 @@ class NetflixHorror::CLI
             puts ""
             puts "Thank you for checking out the Netflix Horror app!".colorize(:red)
             puts ""
-            #allow this  method to end
+            #allow this method to end
         else
             puts ""
             puts "Invalid input, please try again...".colorize(:red)
@@ -94,8 +94,6 @@ class NetflixHorror::CLI
                 puts ""
                 puts "#{review.author} from the #{review.press} says #{review.quote}.\n\n".colorize(:blue)
             end
-       #else
-       #    puts "Thank you for checking out the Netflix Horror app!".colorize(:red)
        end
     end
     

@@ -40,9 +40,7 @@ class NetflixHorror::Scraper
 
         movie_object.add_review(ro)
         #add this review to movie.reviews
-        
-        end
-        
+        end    
     end
 
 end
