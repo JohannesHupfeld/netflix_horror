@@ -95,6 +95,5 @@ class NetflixHorror::CLI
                 puts "#{review.author} from the #{review.press} says #{review.quote}.\n\n".colorize(:blue)
             end
        end
-    end
-    
+    end    
 end 
