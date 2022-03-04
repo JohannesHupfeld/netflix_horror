@@ -60,7 +60,7 @@ class NetflixHorror::CLI
             puts "Please select a number (1-50) of the corresponding movie that you would like more info on or type exit to leave:".colorize(:red)
             puts ""
             choose_movie
-             
+            
         elsif input == "exit"
             puts ""
             puts "Thank you for checking out the Netflix Horror app!".colorize(:red)
@@ -95,5 +95,18 @@ class NetflixHorror::CLI
                 puts "#{review.author} from the #{review.press} says #{review.quote}.\n\n".colorize(:blue)
             end
        end
-    end    
+    end
 end 
+
+def greeting
+   [1,2,3,4,5].find do |element|
+    element < 3
+   end
+end
+
+
+# diferent types of variables - class, instance, local - scopes of the variables
+# different contexts of self, instance, class, initialize
+# return values - different itterators - each, collect, select, find 
+
+# write a blog post about variable scopes combine line 109/110
